@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: arcane.server.Server
+Class-Path: . Server.jar lib/arcane.jar lib/network.jar lib/jgn.jar lib/antlr-2.7.7.jar lib/h2-1.3.155.jar lib/stringtemplate-3.2.1.jar lib/magicbeans.jar lib/guava-r09.jar lib/junit-4.8.2.jar

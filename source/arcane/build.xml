@@ -1,0 +1,13 @@
+<project name="Arcane" default="exe" basedir=".">
+	<property name="launch4j.dir" location="../../../launch4j" />
+	<target name="exe">
+		<taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask" classpath="${launch4j.dir}/launch4j.jar
+		:${launch4j.dir}/lib/xstream.jar" />
+		<launch4j configFile="./DeckBuilder.xml" />
+		<launch4j configFile="./RulesViewer.xml" />
+	</target>
+	<target name="clean" description="clean up">
+		<delete file="../DeckBuilder.exe" />
+		<delete file="../RulesViewer.exe" />
+	</target>
+</project>

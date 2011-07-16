@@ -1,0 +1,14 @@
+/*.jar
+/*.exe
+/lib/arcane.jar
+/lib/network.jar
+/plugins/*/plugin*.jar
+/decks/*
+!/decks/Fun With Fungus.csv
+/data/rulesdb
+bin/
+.gradle/
+build/
+*.log
+/.metadata/
+.svn/

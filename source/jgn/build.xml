@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="jgn" basedir="." default="jar">
+	<property name="src" location="src"/>
+	<property name="build" location="bin"/>
+	<property name="doc" location="doc"/>
+	<property name="lib" location="lib"/>
+	
+	<property name="jar" value="jgn.jar"/>
+	<property name="srcjar" value="jgn_src.jar"/>
+	<property name="docjar" value="jgn_doc.jar"/>
+	
+	<path id="cp">
+        <fileset dir="${lib}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+	
+    <target name="clean" description="Delete all generated files">
+        <delete dir="${build}"/>
+        <delete file="${jar}"/>
+    	<delete file="${srcjar}"/>
+    	<delete file="${docjar}"/>
+    	<mkdir dir="${build}"/>
+    </target>
+    
+	<target name="dependencies" depends="clean">
+		<get src="http://www.captiveimagination.com/download/dependencies/magicbeans.jar" dest="${lib}/magicbeans.jar" usetimestamp="true"/>
+	</target>
+	
+    <target name="compile" depends="dependencies" description="Compiles the Task">
+        <javac srcdir="${src}" destdir="${build}" classpathref="cp" source="1.5" target="1.5" debug="true"/>
+    </target>
+	
+	<target name="javadoc" depends="compile" description="Generates the JavaDocs">
+		<delete dir="${doc}"/>
+    	<javadoc
+    		packagenames="*"
+    		sourcepath="${src}"
+    		destdir="${doc}"
+    		author="true"
+    		version="true"
+    		use="true"
+    		windowTitle="javagamenetworking api"
+    		classpathref="cp"/>
+	</target>
+	
+    <target name="jar" depends="javadoc" description="JARs the Task">
+        <jar destfile="${jar}" basedir="${build}"/>
+    	<jar destfile="${srcjar}" basedir="${src}"/>
+    	<jar destfile="${docjar}" basedir="${doc}"/>
+    </target>
+	
+	<target name="release" depends="jar">
+		<input message="Username:" addproperty="username"/>
+		<input message="Password:" addproperty="password"/>
+		<scp file="${jar}" todir="${username}:${password}@captiveimagination.com:/var/www/html/download/dependencies" trust="true"/>
+		<scp file="${srcjar}" todir="${username}:${password}@captiveimagination.com:/var/www/html/download/dependencies" trust="true"/>
+		<scp file="${docjar}" todir="${username}:${password}@captiveimagination.com:/var/www/html/download/dependencies" trust="true"/>
+	</target>
+</project>

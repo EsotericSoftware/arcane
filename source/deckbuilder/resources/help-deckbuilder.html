@@ -1,0 +1,214 @@
+<html>
+<body style='font-family:tahoma;font-size:11pt;margin:4px 4px 0px 5px'>
+<font size="+1">Nate's Deck Builder</font><br><br>
+<hr>
+<b>Card Search</b><br>
+<br>
+<i>Change card table columns:</i><br>
+Right click a card table column header.<br>
+<br>
+<i>Exact color search:</i><br>
+When the exact button is down, only cards that have the exact colors that are down will be shown. Eg, if green, blue, and exact are down then GWU cards will not be shown because white is not down. All green, blue, and green &amp; blue cards are shown. If exact is up and green and blue are down, all cards that have green or blue are shown.<br>
+<br>
+<i>Text and phrase search:</i><br>
+<b>this that</b> - Finds all cards containing the text "this" and "that".<br>
+<b>this OR that</b> - Finds all cards containing the text "this" or "that".<br>
+<b>"this thing"</b> - Finds all cards containing the phrase "this thing".<br>
+<b>"this thing" "that thing"</b> - Finds all cards containing the phrase "this thing" and "that thing".<br>
+<b>"this thing" OR "that thing"</b> - Finds all cards containing the phrase "this thing" or "that thing".<br>
+<b>this -that</b> - Finds all cards containing the text "this" that do not contain the text "that".<br>
+<b>"-this thing"</b> - Finds all cards that do not contain the phrase "this thing".<br>
+<br>
+<i>Wildcard search:</i><br>
+<b>ter*nate</b> - Finds all cards containing the text "ter" followed by any text, then the text "nate".<br>
+<b>*nate</b> - Finds all cards that have text ending with "nate". Note this matches the entire text ending in "nate", not words that end in "nate".<br>
+<b>ter*</b> - Finds all cards that have text beginning with "ter".  Note this matches the entire text beginning with "ter", not words that begin with "ter".<br>
+<b>ca*pr*sor</b> - Finds all cards containing the text "ca" followed by any text, then the text "pr" followed by any text, then the text "sor".<br>
+Wildcard searches also work in the quick search box (in the "Cards" pane).<br>
+<br>
+<i>Power and toughness search:</i><br>
+<b>pt=1/2</b> - Finds all cards with a power/toughness of 1/2.<br>
+<b>p=2</b> - Finds all cards with a power of 2.<br>
+<b>p&gt;3</b> - Finds all cards with a power greater that 3.<br>
+<b>p&lt;3</b> - Finds all cards with a power less that 3.<br>
+<b>power=2</b> - Finds all cards with a power of 2. "power" and "p" are identical.<br>
+<b>t=4</b> - Finds all cards with a toughness of 4.<br>
+<b>t&gt;2</b> - Finds all cards with a toughness greater that 2.<br>
+<b>t&lt;2</b> - Finds all cards with a toughness less that 2.<br>
+<b>toughness=4</b> - Finds all cards with a toughness of 4. "toughness" and "t" are identical.<br>
+<br>
+<i>Cost search:</i><br>
+<b>c={1}{U}{B}</b> - Finds all cards with the exact casting cost of <img src='file:images/symbols-11/1.png' width=11 height=11><img src='file:images/symbols-11/U.png' width=11 height=11><img src='file:images/symbols-11/B.png' width=11 height=11>.<br>
+<b>c=1UB</b> - Finds all cards with the exact casting cost of <img src='file:images/symbols-11/1.png' width=11 height=11><img src='file:images/symbols-11/U.png' width=11 height=11><img src='file:images/symbols-11/B.png' width=11 height=11>. The curly braces are added automatically.<br>
+<b>c={UB}{UB}</b> - Finds all cards with the exact casting cost of <img src='file:images/symbols-11/UB.png' width=11 height=11><img src='file:images/symbols-11/UB.png' width=11 height=11>.<br>
+<b>c={16}</b> - Finds all cards with the exact casting cost of <img src='file:images/symbols-11/16.png' width=11 height=11>.<br>
+<b>cost=1UB</b> - Finds all cards with the exact casting cost of <img src='file:images/symbols-11/1.png' width=11 height=11><img src='file:images/symbols-11/U.png' width=11 height=11><img src='file:images/symbols-11/B.png' width=11 height=11>. "cost" and "c" are identical.<br>
+<b>castingcost=1UB</b> - Finds all cards with the exact casting cost of <img src='file:images/symbols-11/1.png' width=11 height=11><img src='file:images/symbols-11/U.png' width=11 height=11><img src='file:images/symbols-11/B.png' width=11 height=11>. "castingcost" and "c" are identical.<br>
+<b>c=1U*</b> - Finds all cards with a casting cost starting with <img src='file:images/symbols-11/1.png' width=11 height=11><img src='file:images/symbols-11/U.png' width=11 height=11>. The curly braces are added automatically.<br>
+<b>c=1*B</b> - Finds all cards with a casting cost starting with <img src='file:images/symbols-11/1.png' width=11 height=11>, then one or more of any symbol, then ending with <img src='file:images/symbols-11/U.png' width=11 height=11>. The curly braces are added automatically.<br>
+<b>c=*UB</b> - Finds all cards with a casting cost ending with <img src='file:images/symbols-11/U.png' width=11 height=11><img src='file:images/symbols-11/U.png' width=11 height=11>. The curly braces are added automatically.<br>
+<br>
+<i>Converted cost search:</i><br>
+<b>cc=4</b> - Finds all cards with the converted mana cost of 4.<br>
+<b>cc&gt;3</b> - Finds all cards with the converted mana cost greater than 3.<br>
+<b>cc&lt;3</b> - Finds all cards with the converted mana cost less than 3.<br>
+<b>ccost=4</b> - Finds all cards with the converted mana cost of 4. "ccost" and "cc" are identical.<br>
+<b>covertedcost=4</b> - Finds all cards with the converted mana cost of 4. "covertedcost" and "cc" are identical.<br>
+<b>covertedcastingcost=4</b> - Finds all cards with the converted mana cost of 4. "covertedcastingcost" and "cc" are identical.<br>
+<br>
+<i>Set search:</i><br>
+<b>s=CLD</b> - Finds all cards in the Coldsnap set.<br>
+<b>s=cs</b> - Finds all cards in the Coldsnap set.<br>
+<b>s=Coldsnap</b> - Finds all cards in the Coldsnap set.<br>
+<b>set=CS</b> - Finds all cards in the Coldsnap set. "set" and "s" are identical.<br>
+<br>
+<i>Mana produced search:</i><br>
+<b>m=w</b> - Finds all cards that produce white mana.<br>
+<b>m=wr</b> - Finds all cards that produce white and red mana.<br>
+<b>m=w OR m=r</b> - Finds all cards that produce white or red mana.<br>
+<b>m=ubr</b> - Finds all cards that produce blue, black, and red mana.<br>
+<b>m=c</b> - Finds all cards that produce only colorless mana.<br>
+<b>m=colorless</b> - Finds all cards that produce only colorless mana. "colorless" and "c" are identical.<br>
+<b>mana=w</b> - Finds all cards that produce white mana. "mana" and "m" are identical.<br>
+<b>manaproduced=w</b> - Finds all cards that produce white mana. "manaproduced" and "m" are identical.<br>
+<br>
+<i>Rating search:</i><br>
+<b>r=2</b> - Finds all cards that have a rating of 2.<br>
+<b>r&gt;3</b> - Finds all cards that have a rating greater than 3.<br>
+<b>r&lt;4</b> - Finds all cards that have a rating less than 4.<br>
+<b>rating=2</b> - Finds all cards that have a rating of 2. "rating" and "r" are identical.<br>
+<b>ratings=2</b> - Finds all cards that have a rating of 2. "ratings" and "r" are identical.<br>
+<br>
+<i>Flag search:</i><br>
+<b>f=b</b> - Finds all cards that have a blue flag.<br>
+<b>f=g</b> - Finds all cards that have a green flag.<br>
+<b>f=y</b> - Finds all cards that have a yellow flag.<br>
+<b>f=o</b> - Finds all cards that have a orange flag.<br>
+<b>f=r</b> - Finds all cards that have a red flag.<br>
+<b>f=gr</b> - Finds all cards that have a green and red flag.<br>
+<b>f=yrob</b> - Finds all cards that have a yellow, red, orange and blue flag.<br>
+<b>flag=b</b> - Finds all cards that have a blue flag. "flag" and "f" are identical.<br>
+<b>flags=b</b> - Finds all cards that have a blue flag. "flags" and "f" are identical.<br>
+<br>
+<hr>
+<b>Other Usage</b><br>
+<br>
+<i>Owned quantities:</i><br>
+To set the owned quantity for cards, right click a card table column header and add the column "Owned Qty". Edit the owned quantity by double clicking the cell and typing a number. This editing is only enabled when the "unique" button is not depressed.<br>
+<br>
+The owned quantities can also be managed in an external application, such as MTGO, then imported though the "Import owned quantities" option on the "Tools" menu.<br>
+<br>
+To make decks with only cards you actually own, press the "owned" button.<br>
+<br>
+<i>Saving decks:</i><br>
+Decks can be saved in various formats. The templates used to output decks exist in the "templates" directory. Any new template files that appear here will automatically appear in the "Save As" dialogs. The templates are written a language called StringTemplate. See:<br>
+http://www.stringtemplate.org<br>
+<br>
+<hr>
+<b>Mouse Shortcuts</b><br>
+<br>
+<i>Card type buttons:</i><br>
+<b>Right click</b> - Toggles the clicked button and all other buttons in the row.<br>
+<br>
+<i>In card pool table:</i><br>
+<b>Double click</b> - Add to deck (1).<br>
+<b>Alt+Double click</b> - Add to deck (4).<br>
+<b>Alt+Click "Add to deck" button</b> - Add to deck (4).<br>
+<b>Right click "Add to deck" button</b> - Add to deck (4).<br>
+<b>Double right click</b> - Add to sideboard (1).<br>
+<b>Alt+Double right click</b> - Add to sideboard (4).<br>
+<b>Alt+Click "Add to sideboard" button</b> - Add to sideboard (4).<br>
+<b>Right click "Add to sideboard" button</b> - Add to sideboard (4).<br>
+<b>Alt+Click table columns</b> - Multipe column sort.<br>
+<br>
+<i>In deck/sideboard table:</i><br>
+<b>Double click</b> - Increment (1).<br>
+<b>Alt+Double click</b> - Increment (4).<br>
+<b>Alt+Click "Increment" button</b> - Increment (4).<br>
+<b>Right click "Increment" button</b> - Increment (4).<br>
+<b>Double right click</b> - Decrement (1).<br>
+<b>Alt+Double right click</b> - Decrement (4).<br>
+<b>Alt+Click "Decrement" button</b> - Decrement (4).<br>
+<b>Right click "Decrement" button</b> - Decrement (4).<br>
+<b>Ctrl+Double right click</b> - Move to deck/sideboard (1).<br>
+<b>Alt+Ctrl+Double right click</b> - Move to deck/sideboard (4).<br>
+<b>Alt+Click "Move to deck/sideboard" button</b> - Move to deck/sideboard (4).<br>
+<b>Right click "Move to deck/sideboard" button</b> - Move to deck/sideboard (4).<br>
+<b>Alt+Click "Move up" button</b> - Move up (4).<br>
+<b>Right click "Move up" button</b> - Move up (4).<br>
+<b>Alt+Click "Move down" button</b> - Move down (4).<br>
+<b>Right click "Move down" button</b> - Move down (4).<br>
+<b>Alt+Click "Undo" button</b> - Undo (4).<br>
+<b>Right click "Undo" button</b> - Undo (4).<br>
+<b>Alt+Click "Redo" button</b> - Redo (4).<br>
+<b>Right click "Redo" button</b> - Redo (4).<br>
+<b>Alt+Click table columns</b> - Multipe column sort.<br>
+<br>
+<hr>
+<b>Keyboard Shortcuts</b><br>
+<br>
+<i>Always:</i><br>
+<b>Escape</b> - Focus search box.<br>
+<b>Alt+S</b> - Focus search box.<br>
+<b>Alt+C</b> - Focus card pool table.<br>
+<b>Alt+Q</b> - Focus quick search box.<br>
+<b>Alt+D</b> - Focus deck/sideboard table.<br>
+<b>Ctrl+Z</b> - Undo deck edit.<br>
+<b>Ctrl+Shift+Z</b> - Redo deck edit.<br>
+<br>
+<i>When search box has focus:</i><br>
+<b>Escape</b> - Reset search.<br>
+<b>Tab</b> - Focus card pool table.<br>
+<b>Shift+Tab</b> - Focus deck table.<br>
+<br>
+<i>When card pool table has focus:</i><br>
+<b>Enter</b> - Add to deck (1).<br>
+<b>Alt+Enter</b> - Add to sideboard (1).<br>
+<b>Delete</b> - Decrement (1) from deck/sideboard.<br>
+<b>Alt+Delete</b> - Decrement (4) from deck/sideboard.<br>
+<b>+</b> - Add to owned qty (1).<br>
+<b>-</b> - Decrement (1) from owned qty.<br>
+<b>Ctrl+C</b> - Copy card quantities and names.<br>
+<b>Tab</b> - Focus deck table.<br>
+<b>Shift+Tab</b> - Focus sideboard table.<br>
+<b>[type any character]</b> - Focus quick search box and type character.<br>
+<br>
+<i>When deck/sideboard table has focus:</i><br>
+<b>Enter</b> - Increment (1).<br>
+<b>Alt+Enter</b> - Move to deck/sideboard (1).<br>
+<b>Delete</b> - Decrement (1).<br>
+<b>Alt+Delete</b> - Decrement (4).<br>
+<b>Alt+Up</b> - Move up (1).<br>
+<b>Alt+Down</b> - Move down (1).<br>
+<b>Ctrl+C</b> - Copy card quantities and names.<br>
+<b>Tab</b> - Focus sideboard table.<br>
+<b>Shift+Tab</b> - Focus card pool table.<br>
+<br>
+<i>When quick search box (in the "Cards" pane) has focus:</i><br>
+<b>[type any character]</b> - Go to first result.<br>
+<b>Enter</b> - Go to next result.<br>
+<b>Alt+Enter</b> - Go to previous result.<br>
+<b>Shift+Enter</b> - Go to previous result.<br>
+<b>Up/Down/Page Up/Page Down</b> - Focus card pool table.<br>
+<br>
+<hr>
+<b>Card Updates</b><br>
+<br>
+All cards are stored in /data/cards.csv. This file can be updated using tools in Nate's Card Generator, which can be downloaded here:<br>
+http://www.slightlymagic.net/cardgen.shtml<br>
+Follow the instructions inside the card generator's text file /scripts/mws2cards.php.<br>
+<br>
+<hr>
+<b>Set and Format Updates</b><br>
+<br>
+Modify the /data/sets.txt and /data/formats.txt files.<br>
+<br>
+<hr>
+<b>Rule and Ruling Updates</b><br>
+<br>
+Replace the /data/rule-cards.txt and /data/rule-general.txt files with new files from:<br>
+http://www.crystalkeep.com/magic/rules/index.php<br>
+<br>
+<br>
+</body>
+</html>

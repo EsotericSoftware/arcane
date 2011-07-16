@@ -1,0 +1,155 @@
+subprojects {
+	apply plugin: 'java'
+
+	def findbugsHome = "../../java-tools/findbugs"
+
+	repositories {
+		mavenLocal()
+		flatDir name: 'localRepository', dirs: '../lib'
+		flatDir name: 'localRepositoryAlt', dirs: '..'
+		flatDir name: 'pmdRepo', dirs: '../../java-tools/pmd/lib'
+		flatDir name: 'ecjRepo', dirs: '../../java-tools/ecj'
+		flatDir name: 'findbugsRepo', dirs: "${findbugsHome}/lib"
+		mavenCentral()
+	}
+
+	//
+	// Configure ecj as java compiler
+	//
+
+	configurations {
+			jdt
+	}
+
+	dependencies {
+			jdt "org.eclipse.jdt:ecj:3.6.2"
+	}
+
+	warnings = [
+			'allDeprecation',
+			'assertIdentifier',
+			'charConcat',
+			'compareIdentical',
+			'conditionAssign',
+			'constructorName',
+			'hashCode',
+	]
+
+	compileJava {
+			options.compiler = "org.eclipse.jdt.core.JDTCompilerAdapter"
+			options.define(compilerArgs: ['-enableJavadoc', "-warn:${warnings.join(',')}"])
+			doFirst {
+					ClassLoader antClassLoader = org.apache.tools.ant.Project.class.classLoader
+					configurations.jdt.each { File f ->
+							antClassLoader.addURL(f.toURI().toURL())
+					}
+			}
+	}
+
+	dependencies {
+		compile ':arcane:1.0@jar'
+		compile ':DeckBuilder:1.0@jar'
+	}
+
+	sourceSets {
+		main {
+			java {
+				srcDir 'source/src'
+				exclude '**/empty.txt'
+			}
+			resources {
+				srcDir 'source/resources'
+				exclude '**/empty.txt'
+			}
+		}
+	}
+
+	///
+	// pmd
+	//
+
+	configurations {
+		pmdConf
+	}
+
+	dependencies {
+		pmdConf 'pmd:pmd:4.2.5'
+	}
+
+	task pmd << {
+		println 'Running PMD static code analysis'
+		ant {
+			taskdef(name:'pmd', classname:'net.sourceforge.pmd.ant.PMDTask', classpath: configurations.pmdConf.asPath)
+
+			pmd(shortFilenames:'true', failonruleviolation:'false', rulesetfiles:'rulesets/basic.xml') {
+				formatter(type:'text', toConsole:'true')
+				fileset(dir: "source/src") {
+					include(name: '**/*.java')
+				}
+			}
+		}
+	}
+
+	///
+	// findbugs
+	//
+
+	configurations {
+		findbugsConf
+	}
+
+	dependencies {
+		findbugsConf 'net.sourceforge.findbugs:findbugs:1.3.2', 'net.sourceforge.findbugs:findbugs-ant:1.3.2'
+	}
+
+	task findbugs << {
+		println 'Running findbugs static code analysis'
+		ant {
+			taskdef(name:'findbugs', classname:'edu.umd.cs.findbugs.anttask.FindBugsTask', classpath: configurations.findbugsConf.asPath)
+
+			findbugs(home: "../${findbugsHome}", output:'xml', outputFile: "${buildDir}/findbugs.xml") {
+					sourcePath(path: 'source/src')
+					"class"(location: "${libsDir}/${jar.archiveName}")
+			}
+		}
+	}
+
+}
+
+project(':CardGenerator') {
+	archivesBaseName = "plugin-cardgenerator"
+}
+
+project(':CrystalkeepRulings') {
+	archivesBaseName = "plugin-crystalkeeprulings"
+}
+
+project(':MagicTraders') {
+	archivesBaseName = "plugin-magictraders"
+}
+
+project(':MTGVault') {
+	archivesBaseName = "plugin-mtgvault"
+}
+
+project(':MWSPlay') {
+	archivesBaseName = "plugin-mwsplay"
+}
+
+project(':Tester') {
+	archivesBaseName = "plugin-tester"
+}
+
+dependsOnChildren()
+
+
+task dists(dependsOn: subprojects.jar) {
+	List<String> excludeJars = ['Tester']
+
+	subprojects.each {
+		project -> if(!excludeJars.any{it.equals(project.name)}) copy {
+			from project.libsDir
+			into project.projectDir
+		}
+	}
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="**/.svn/*" kind="src" path="src"/>
+	<classpathentry excluding="**/.svn/*" kind="src" path="resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="lib/h2.jar"/>
+	<classpathentry kind="lib" path="lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/stringtemplate.jar"/>
+	<classpathentry kind="lib" path="/deckbuilder/lib/google-collections-1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
