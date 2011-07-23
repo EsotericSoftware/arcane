@@ -7,6 +7,7 @@ public enum Format {
 	legacy("Legacy (T1.5)"), //
 	extended("Extended (T1.x)"), //
 	standard("Standard (T2)"), //
+	modern("Modern"), //
 	custom("Custom");
 
 	private final String text;

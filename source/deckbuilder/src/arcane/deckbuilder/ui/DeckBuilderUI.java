@@ -595,7 +595,7 @@ abstract class DeckBuilderUI extends ArcaneFrame {
 			}
 			{
 				ComboBoxModel presetComboModel = new DefaultComboBoxModel(new Format[] { //
-					Format.all, Format.vintage, Format.legacy, Format.extended, Format.standard, Format.custom});
+					Format.all, Format.vintage, Format.legacy, Format.extended, Format.standard, Format.modern, Format.custom});
 				presetCombo = new JComboBox();
 				setsGroup.add(presetCombo, new GridBagConstraints(1, 1, 1, 1, 1.0, 0.0, GridBagConstraints.WEST,
 					GridBagConstraints.NONE, new Insets(0, 0, 4, 4), 18, 0));

@@ -402,7 +402,57 @@ New Phyrexia
 Magic 2012
 
 Standard (T2)
+BANNED
+Jace, the Mind Sculptor
+Stoneforge Mystic
 SETS
+Zendikar
+Worldwake
+Rise of Eldrazi
+Magic 2011
+Scars of Mirrodin
+Mirrodin Besieged
+New Phyrexia
+
+Modern
+BANNED
+Ancient Den
+Seat of the Synod
+Vault of Whispers
+Great Furnace
+Tree of Tales
+Chrome Mox
+Dark Depths
+Sensei's Divining Top
+Skullclamp
+Sword of the Meek
+Umezawa's Jitte
+Golgari Grave-Troll
+SETS
+Mirrodin
+Eighth Edition
+Darksteel
+Fifth Dawn
+Champions of Kamigawa
+Ninth Edition
+Betrayers of Kamigawa
+Saviors of Kamigawa
+Ravnica: City of Guilds
+Guildpact
+Dissension
+Time Spiral
+Time Spiral Timeshifted
+Planar Chaos
+Future Sight
+Tenth Edition
+Lorwyn
+Morningtide
+Shadowmoor
+Eventide
+Shards of Alara
+Conflux
+Alara Reborn
+Magic 2010
 Zendikar
 Worldwake
 Rise of Eldrazi
