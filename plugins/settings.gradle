@@ -1,1 +1,1 @@
-include "CardGenerator", "CrystalkeepRulings", "MagicTraders", "MTGVault", "MWSPlay", "Tester"
+include "CardGenerator", "CrystalkeepRulings", "MagicTraders", "TCGplayer", "MTGVault", "MWSPlay", "Tester"

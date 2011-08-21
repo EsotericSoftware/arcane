@@ -136,6 +136,13 @@ project(':MWSPlay') {
 	archivesBaseName = "plugin-mwsplay"
 }
 
+project(':TCGplayer') {
+	archivesBaseName = "plugin-tcgplayer"
+	dependencies {
+		compile files("source/lib/xom-1.2.7.jar")
+	}
+}
+
 project(':Tester') {
 	archivesBaseName = "plugin-tester"
 }

@@ -126,7 +126,7 @@ ARB Alara Reborn
 M10 Magic 2010
 ZEN Zendikar
 WWK Worldwake
-ROE Rise of Eldrazi
+ROE Rise of the Eldrazi
 M11 Magic 2011
 SOM Scars of Mirrodin
 MBS Mirrodin Besieged

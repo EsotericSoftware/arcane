@@ -181,7 +181,7 @@ Alara Reborn
 Magic 2010
 Zendikar
 Worldwake
-Rise of Eldrazi
+Rise of the Eldrazi
 Magic 2011
 Scars of Mirrodin
 Mirrodin Besieged
@@ -375,7 +375,7 @@ Alara Reborn
 Magic 2010
 Zendikar
 Worldwake
-Rise of Eldrazi
+Rise of the Eldrazi
 Magic 2011
 Scars of Mirrodin
 Mirrodin Besieged
@@ -394,7 +394,7 @@ Alara Reborn
 Magic 2010
 Zendikar
 Worldwake
-Rise of Eldrazi
+Rise of the Eldrazi
 Magic 2011
 Scars of Mirrodin
 Mirrodin Besieged
@@ -408,7 +408,7 @@ Stoneforge Mystic
 SETS
 Zendikar
 Worldwake
-Rise of Eldrazi
+Rise of the Eldrazi
 Magic 2011
 Scars of Mirrodin
 Mirrodin Besieged
@@ -455,7 +455,7 @@ Alara Reborn
 Magic 2010
 Zendikar
 Worldwake
-Rise of Eldrazi
+Rise of the Eldrazi
 Magic 2011
 Scars of Mirrodin
 Mirrodin Besieged

@@ -2547,7 +2547,9 @@ public class DeckBuilder extends DeckBuilderUI {
 				ListSelectionModel selectionModel = setsList.getSelectionModel();
 				Set<String> sets = arcane.getFormatSets((Format)presetCombo.getSelectedItem());
 				if (sets == null) {
-					if (presetCombo.getSelectedIndex() == 0) selectionModel.addSelectionInterval(0, setsListModel.getSize() - 1);
+					if (presetCombo.getSelectedIndex() == 0 || (Format)presetCombo.getSelectedItem() == Format.custom) {
+					    selectionModel.addSelectionInterval(0, setsListModel.getSize() - 1);
+					}
 				} else {
 					for (String set : sets) {
 						int index = setsListModel.getIndexOf(new SetEntry(set));

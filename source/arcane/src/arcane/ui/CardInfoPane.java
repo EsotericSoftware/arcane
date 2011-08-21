@@ -1,6 +1,10 @@
 
 package arcane.ui;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
@@ -35,7 +39,19 @@ public abstract class CardInfoPane extends JEditorPane {
 		addHyperlinkListener(new HyperlinkListener() {
 			public void hyperlinkUpdate (HyperlinkEvent evt) {
 				if (evt.getEventType() != EventType.ACTIVATED) return;
-				showRule(evt.getDescription());
+				if(evt.getDescription().startsWith("http")){
+					if(Desktop.isDesktopSupported()){
+					Desktop desktop = Desktop.getDesktop();
+					try {
+						desktop.browse(new URI(evt.getDescription()));
+					} catch (Exception e) {
+						throw new ArcaneException("Error opening browser.", e);
+					}
+					}
+				}
+				else {
+					showRule(evt.getDescription());
+				}
 			}
 		});
 	}
@@ -189,10 +205,18 @@ public abstract class CardInfoPane extends JEditorPane {
 					buffer.append("<br>");
 				}
 				if (card.price > 0) {
+						if(card.shopUrl.length() != 0){
+							buffer.append("<a href='");
+							buffer.append(card.shopUrl);
+							buffer.append("'>");
+						}
 					buffer.append("$");
 					buffer.append(card.price);
 					String price = String.valueOf(card.price);
 					if (price.length() > 2 && price.charAt(price.length() - 2) == '.') buffer.append("0");
+					if(card.shopUrl.length() != 0){
+							buffer.append("</a>");
+						}
 					buffer.append("<br>");
 				}
 				if (rulings.size() > 0) {

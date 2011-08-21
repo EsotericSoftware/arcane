@@ -34,6 +34,7 @@ public class Card {
 	public String flags = "";
 	public int ownedQty;
 	public int qty = 1;
+	public String shopUrl = "";
 
 	private Card () {
 		name = "";
@@ -306,12 +307,12 @@ public class Card {
 	static private String replaceDifficultCharacters (String text) {
 		// These are difficult to type when searching.
 		text = text.replace("-", "-");
-		text = text.replace("—", "-");
-		text = text.replace("“", "\"");
-		text = text.replace("”", "\"");
-		text = text.replace("‘", "'");
-		text = text.replace("’", "'");
-		text = text.replace("…", "...");
+		text = text.replace("ï¿½", "-");
+		text = text.replace("ï¿½", "\"");
+		text = text.replace("ï¿½", "\"");
+		text = text.replace("ï¿½", "'");
+		text = text.replace("ï¿½", "'");
+		text = text.replace("ï¿½", "...");
 		return text;
 	}
 }

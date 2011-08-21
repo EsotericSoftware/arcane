@@ -37,6 +37,6 @@ public class MWSPlayPlugin extends DeckBuilderPlugin {
 	}
 
 	public String getName () {
-		return "MWSPlay";
+		return "MWS Play";
 	}
 }
