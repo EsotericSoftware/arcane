@@ -25,8 +25,8 @@ public class CardDataStore extends DataStore<CardDataStore.CardDataStoreConnecti
 		addColumn("rarity VARCHAR (3)");
 		addColumn("castingCost VARCHAR (50)");
 		addColumn("convertedCastingCost INTEGER");
-		addColumn("legal VARCHAR (820)");
-		addColumn("englishLegal VARCHAR (820)");
+		addColumn("legal VARCHAR (2500)");
+		addColumn("englishLegal VARCHAR (2500)");
 		addColumn("color VARCHAR (24)");
 		addColumn("manaProduced VARCHAR (5)");
 		addColumn("power INTEGER");
