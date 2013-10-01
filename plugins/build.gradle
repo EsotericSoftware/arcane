@@ -1,54 +1,18 @@
 subprojects {
 	apply plugin: 'java'
-
-	def findbugsHome = "../../java-tools/findbugs"
+	apply plugin: 'findbugs'
+	apply plugin: 'pmd'
 
 	repositories {
 		mavenLocal()
 		flatDir name: 'localRepository', dirs: '../lib'
 		flatDir name: 'localRepositoryAlt', dirs: '..'
-		flatDir name: 'pmdRepo', dirs: '../../java-tools/pmd/lib'
-		flatDir name: 'ecjRepo', dirs: '../../java-tools/ecj'
-		flatDir name: 'findbugsRepo', dirs: "${findbugsHome}/lib"
 		mavenCentral()
 	}
 
-	//
-	// Configure ecj as java compiler
-	//
-
-	configurations {
-			jdt
-	}
-
 	dependencies {
-			jdt "org.eclipse.jdt:ecj:3.6.2"
-	}
-
-	warnings = [
-			'allDeprecation',
-			'assertIdentifier',
-			'charConcat',
-			'compareIdentical',
-			'conditionAssign',
-			'constructorName',
-			'hashCode',
-	]
-
-	compileJava {
-			options.compiler = "org.eclipse.jdt.core.JDTCompilerAdapter"
-			options.define(compilerArgs: ['-enableJavadoc', "-warn:${warnings.join(',')}"])
-			doFirst {
-					ClassLoader antClassLoader = org.apache.tools.ant.Project.class.classLoader
-					configurations.jdt.each { File f ->
-							antClassLoader.addURL(f.toURI().toURL())
-					}
-			}
-	}
-
-	dependencies {
-		compile ':arcane:1.0@jar'
-		compile ':DeckBuilder:1.0@jar'
+		compile project(':source:arcane')
+		compile project(':source:deckbuilder')
 	}
 
 	sourceSets {
@@ -64,90 +28,51 @@ subprojects {
 		}
 	}
 
-	///
-	// pmd
-	//
-
-	configurations {
-		pmdConf
+	findbugs {
+		ignoreFailures = true
 	}
-
-	dependencies {
-		pmdConf 'pmd:pmd:4.2.5'
-	}
-
-	task pmd << {
-		println 'Running PMD static code analysis'
-		ant {
-			taskdef(name:'pmd', classname:'net.sourceforge.pmd.ant.PMDTask', classpath: configurations.pmdConf.asPath)
-
-			pmd(shortFilenames:'true', failonruleviolation:'false', rulesetfiles:'rulesets/basic.xml') {
-				formatter(type:'text', toConsole:'true')
-				fileset(dir: "source/src") {
-					include(name: '**/*.java')
-				}
-			}
+	tasks.withType(FindBugs) {
+		reports {
+			xml.enabled = false
+			html.enabled = true
 		}
 	}
-
-	///
-	// findbugs
-	//
-
-	configurations {
-		findbugsConf
-	}
-
-	dependencies {
-		findbugsConf 'net.sourceforge.findbugs:findbugs:1.3.2', 'net.sourceforge.findbugs:findbugs-ant:1.3.2'
-	}
-
-	task findbugs << {
-		println 'Running findbugs static code analysis'
-		ant {
-			taskdef(name:'findbugs', classname:'edu.umd.cs.findbugs.anttask.FindBugsTask', classpath: configurations.findbugsConf.asPath)
-
-			findbugs(home: "../${findbugsHome}", output:'xml', outputFile: "${buildDir}/findbugs.xml") {
-					sourcePath(path: 'source/src')
-					"class"(location: "${libsDir}/${jar.archiveName}")
-			}
-		}
+	pmd {
+		ignoreFailures = true
 	}
 
 }
 
-project(':CardGenerator') {
+project(':plugins:CardGenerator') {
 	archivesBaseName = "plugin-cardgenerator"
 }
 
-project(':CrystalkeepRulings') {
+project(':plugins:CrystalkeepRulings') {
 	archivesBaseName = "plugin-crystalkeeprulings"
 }
 
-project(':MagicTraders') {
+project(':plugins:MagicTraders') {
 	archivesBaseName = "plugin-magictraders"
 }
 
-project(':MTGVault') {
+project(':plugins:MTGVault') {
 	archivesBaseName = "plugin-mtgvault"
 }
 
-project(':MWSPlay') {
+project(':plugins:MWSPlay') {
 	archivesBaseName = "plugin-mwsplay"
 }
 
-project(':TCGplayer') {
+project(':plugins:TCGplayer') {
 	archivesBaseName = "plugin-tcgplayer"
 	dependencies {
 		compile files("source/lib/xom-1.2.7.jar")
 	}
 }
 
-project(':Tester') {
+project(':plugins:Tester') {
 	archivesBaseName = "plugin-tester"
 }
-
-dependsOnChildren()
 
 
 task dists(dependsOn: subprojects.jar) {

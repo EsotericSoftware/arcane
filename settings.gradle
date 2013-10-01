@@ -1,0 +1,4 @@
+include "plugins:CardGenerator", "plugins:CrystalkeepRulings", \
+"plugins:MagicTraders", "plugins:TCGplayer", "plugins:MTGVault", "plugins:MWSPlay", "plugins:Tester", \
+"source:arcane", "source:deckbuilder", "source:rulesviewer", "source:server", "source:client", \
+"source:jgn", "source:network", "source:test"

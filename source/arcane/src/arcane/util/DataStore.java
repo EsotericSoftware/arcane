@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Convenience class that makes it easy to create a local database and access it in a thread safe manner.
  */
-public abstract class DataStore<T extends DataStore<?>.DataStoreConnection> {
+public abstract class DataStore<T extends DataStore.DataStoreConnection> {
 	private final String databaseName;
 	private final boolean inMemory;
 	private final String tableName;

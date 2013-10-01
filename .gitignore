@@ -12,3 +12,5 @@ build/
 *.log
 /.metadata/
 .svn/
+*.iml
+.idea/

@@ -32,7 +32,7 @@ public class CardDataStore extends DataStore<CardDataStore.CardDataStoreConnecti
 		addColumn("power INTEGER");
 		addColumn("toughness INTEGER");
 		addColumn("version VARCHAR (64)");
-		addColumn("collectorNumber VARCHAR (12)");
+		addColumn("collectorNumber VARCHAR (20)");
 		addColumn("price DECIMAL (7, 2)");
 		open();
 		addIndex("name");

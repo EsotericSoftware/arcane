@@ -1,1 +1,0 @@
-include "arcane", "deckbuilder", "rulesviewer", "server", "client", "jgn", "network", "test"
