@@ -307,12 +307,12 @@ public class Card {
 	static private String replaceDifficultCharacters (String text) {
 		// These are difficult to type when searching.
 		text = text.replace("-", "-");
-		text = text.replace("�", "-");
-		text = text.replace("�", "\"");
-		text = text.replace("�", "\"");
-		text = text.replace("�", "'");
-		text = text.replace("�", "'");
-		text = text.replace("�", "...");
+		text = text.replace("—", "-");
+		text = text.replace("“", "\"");
+		text = text.replace("”", "\"");
+		text = text.replace("‘", "'");
+		text = text.replace("’", "'");
+		text = text.replace("…", "...");
 		return text;
 	}
 }
