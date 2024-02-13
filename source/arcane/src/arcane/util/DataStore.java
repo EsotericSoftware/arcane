@@ -151,7 +151,7 @@ public abstract class DataStore<T extends DataStore.DataStoreConnection> {
 	 */
 	public Connection openConnection () throws SQLException {
 		if (inMemory) return DriverManager.getConnection("jdbc:h2:mem:" + databaseName);
-		return DriverManager.getConnection("jdbc:h2:file:" + databaseName);
+		return DriverManager.getConnection("jdbc:h2:file:" + databaseName + ";AUTO_SERVER=TRUE");
 		// if (inMemory) return DriverManager.getConnection("jdbc:h2:mem:" + databaseName + ";FILE_LOCK=SOCKET");
 		// return DriverManager.getConnection("jdbc:h2:file:" + databaseName + ";FILE_LOCK=SOCKET");
 	}

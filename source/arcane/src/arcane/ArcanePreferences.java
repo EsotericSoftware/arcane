@@ -1,6 +1,7 @@
 
 package arcane;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -33,14 +34,16 @@ public class ArcanePreferences extends Preferences {
 
 	public ArcanePreferences (String fileName) {
 		this.fileName = fileName;
-		try {
-			FileInputStream stream = new FileInputStream(fileName);
-			load(stream);
-			stream.close();
-		} catch (FileNotFoundException ex) {
-		    throw new ArcaneException("File not found: \"" + fileName + "\".", ex);
-		} catch (IOException ex) {
-			throw new ArcaneException("Error reading \"" + fileName + "\".", ex);
+		if (new File(fileName).exists()) {
+			try {
+				FileInputStream stream = new FileInputStream(fileName);
+				load(stream);
+				stream.close();
+			} catch (FileNotFoundException ex) {
+			    throw new ArcaneException("File not found: \"" + fileName + "\".", ex);
+			} catch (IOException ex) {
+				throw new ArcaneException("Error reading \"" + fileName + "\".", ex);
+			}
 		}
 
 		version = get("version", Arcane.version);
