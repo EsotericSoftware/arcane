@@ -23,17 +23,18 @@ public class Menu extends JMenu {
 	public Menu (String text) {
 		super(text);
 
-		if (!(getUI() instanceof WindowsMenuUI)) return;
-		setUI(new WindowsMenuUI() {
-			protected void paintMenuItem (Graphics g, JComponent c, Icon checkIcon, Icon arrowIcon, Color background,
-				Color foreground, int defaultTextIconGap) {
-				super.paintMenuItem(g, c, null, arrowIcon, background, foreground, 0);
-			}
-
-			protected void paintText (Graphics g, JMenuItem menuItem, Rectangle textRect, String text) {
-				textRect.x += 6;
-				super.paintText(g, menuItem, textRect, text);
-			}
-		});
+		// BOZO! - Fix.
+//		if (!(getUI() instanceof WindowsMenuUI)) return;
+//		setUI(new WindowsMenuUI() {
+//			protected void paintMenuItem (Graphics g, JComponent c, Icon checkIcon, Icon arrowIcon, Color background,
+//				Color foreground, int defaultTextIconGap) {
+//				super.paintMenuItem(g, c, null, arrowIcon, background, foreground, 0);
+//			}
+//
+//			protected void paintText (Graphics g, JMenuItem menuItem, Rectangle textRect, String text) {
+//				textRect.x += 6;
+//				super.paintText(g, menuItem, textRect, text);
+//			}
+//		});
 	}
 }

@@ -19,7 +19,7 @@ abstract public class Loader implements Runnable {
 	protected ProgressDialog dialog = new ProgressDialog();
 
 	private MessageFrame errorFrame;
-	private boolean cancelled;
+	private volatile boolean cancelled;
 	private boolean success;
 
 	public Loader (String title) {
@@ -66,20 +66,22 @@ abstract public class Loader implements Runnable {
 
 	protected void handleError (String error) {
 		System.out.println(error);
-		final class Worker implements Runnable{
+		final class Worker implements Runnable {
 			private String error;
-			Worker(String e){
+
+			Worker (String e) {
 				error = e;
 			}
 
-			public void run() {
+			public void run () {
 				MessageFrame errorFrame = getErrorFrame();
 				errorFrame.setTitle(dialog.getTitle());
 				errorFrame.setVisible(true);
 				errorFrame.appendText(error);
 				errorFrame.scrollToEnd();
 			}
-		};
+		}
+		;
 		EventQueue.invokeLater(new Worker(error));
 	}
 

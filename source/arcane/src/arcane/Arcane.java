@@ -53,7 +53,7 @@ import arcane.util.MultiplexOutputStream;
 import arcane.util.UnicodeReader;
 
 public class Arcane {
-	static public final String version = "0.17";
+	static public final String version = "0.18";
 
 	private ArcanePreferences prefs;
 	private ArcaneTranslation trans;
@@ -362,6 +362,9 @@ public class Arcane {
 			// Check if we are running from the right directory.
 			if (!new File("data").exists()) {
 				MessageFrame errorFrame = getErrorFrame();
+				errorFrame.appendText("Data file not found:\n");
+				errorFrame.appendText(new File("data").getAbsolutePath());
+				errorFrame.appendText("\n\n");
 				errorFrame.appendText("This application must be started from its own directory.\n");
 				errorFrame.appendText("\n");
 				errorFrame.appendText("Current directory:\n");

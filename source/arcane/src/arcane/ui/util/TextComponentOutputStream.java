@@ -22,7 +22,7 @@ public class TextComponentOutputStream extends OutputStream {
 		if (c != '\n') return;
 		Document document = textComponent.getDocument();
 		try {
-			document.insertString(document.getEndPosition().getOffset(), buffer.toString(), null);
+			document.insertString(document.getLength(), buffer.toString(), null);
 		} catch (BadLocationException ignored) {
 		}
 		textComponent.setCaretPosition(textComponent.getDocument().getLength());

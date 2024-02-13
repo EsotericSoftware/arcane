@@ -18,12 +18,13 @@ public class CheckMenuItem extends JCheckBoxMenuItem {
 
 	public CheckMenuItem (String text) {
 		super(text);
-		if (!(getUI() instanceof WindowsCheckBoxMenuItemUI)) return;
-		setUI(new WindowsCheckBoxMenuItemUI() {
-			protected void doClick (MenuSelectionManager msm) {
-				super.doClick(CheckMenuItem.dontCloseSelectionManager);
-				setArmed(true);
-			}
-		});
+		// BOZO! - Fix.
+//		if (!(getUI() instanceof WindowsCheckBoxMenuItemUI)) return;
+//		setUI(new WindowsCheckBoxMenuItemUI() {
+//			protected void doClick (MenuSelectionManager msm) {
+//				super.doClick(CheckMenuItem.dontCloseSelectionManager);
+//				setArmed(true);
+//			}
+//		});
 	}
 }

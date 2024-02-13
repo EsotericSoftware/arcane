@@ -52,7 +52,7 @@ public class MessageFrame extends JFrame {
 	public void appendText (String text) {
 		Document document = editorPane.getDocument();
 		try {
-			document.insertString(document.getEndPosition().getOffset(), text, null);
+			document.insertString(document.getLength(), text, null);
 		} catch (BadLocationException ignored) {
 		}
 	}
